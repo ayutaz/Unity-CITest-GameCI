@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textView: {fileID: 430901284}
-  _buttonView: {fileID: 430901285}
+  buttonView: {fileID: 430901285}
   model: {fileID: 1183431404}
 --- !u!1 &1341354761
 GameObject:
