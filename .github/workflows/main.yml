@@ -1,0 +1,59 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test and Build,Release APK
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+# Controls when the action will run. 
+on: [push]
+  # Triggers the workflow on push or pull request events but only for the main branch
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out my unity project.
+        uses: actions/checkout@v2
+  test:
+    name: Run EditMode and PlayMode Test
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Run EditMode and PlayMode Test
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: .
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          unityVersion: 2020.3.9f1
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        lfs: false
+        clean: false
+        
+    # Cache
+    - uses: actions/cache@v2
+      with:
+        path: Library
+        key: Library
+
+    # Build
+    - name: Build project
+      uses: game-ci/unity-builder@v2.0-alpha-6
+      with:
+        unityVersion: 2020.3.9f1
+        targetPlatform: Android
+
+    # Output
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Build
+        path: build
