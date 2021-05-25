@@ -66,7 +66,6 @@ jobs:
     - name: Build project
       uses: game-ci/unity-builder@v2.0-alpha-6
       with:
-        buildsPath: ${{ github.workspace }}/Builds/
         unityVersion: ${{ matrix.unityVersion }}
         targetPlatform: ${{ matrix.targetPlatform }}
 
@@ -74,4 +73,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Build-${{ matrix.targetPlatform }}
-        path: ${{ github.workspace }}/Builds/${{ matrix.targetPlatform }}
+        path: builds/${{ matrix.targetPlatform }}
