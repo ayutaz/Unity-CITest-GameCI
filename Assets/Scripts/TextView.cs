@@ -1,7 +1,8 @@
+using Interface;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextView : MonoBehaviour
+public class TextView : MonoBehaviour,ITextView
 {
     [SerializeField] private Text countText;
     // Start is called before the first frame update

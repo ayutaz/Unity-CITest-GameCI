@@ -1,8 +1,9 @@
 using System;
+using Interface;
 using UniRx;
 using UnityEngine;
 
-public class Model : MonoBehaviour
+public class Model : MonoBehaviour,IModel
 {
     private int _counter = 0;
 
