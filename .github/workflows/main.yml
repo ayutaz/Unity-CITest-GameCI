@@ -29,6 +29,12 @@ jobs:
           projectPath: .
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           unityVersion: 2020.3.9f1
+      # テストの実行結果をアーティファクトにアップロードして後から参照可能にする
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test results
+          path: artifacts
   build:
     runs-on: ubuntu-latest
     needs: test
@@ -56,4 +62,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Build
-        path: build
+        path: builds
