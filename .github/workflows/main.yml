@@ -43,7 +43,7 @@ jobs:
         buildName:
           - testCi
         projectPath:
-          - Unity-CITest-GameCI
+          - .
         unityVersion:
           - 2020.3.9f1
         targetPlatform:
