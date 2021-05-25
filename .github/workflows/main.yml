@@ -37,6 +37,17 @@ jobs:
           path: artifacts
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        buildName:
+          - testCi
+        projectPath:
+          - Unity-CITest-GameCI
+        unityVersion:
+          - 2020.3.9f1
+        targetPlatform:
+         - Android # Build an Android player.
     needs: test
     steps:
     - name: Checkout
@@ -55,11 +66,12 @@ jobs:
     - name: Build project
       uses: game-ci/unity-builder@v2.0-alpha-6
       with:
-        unityVersion: 2020.3.9f1
-        targetPlatform: Android
+        buildsPath: ${{ github.workspace }}/Builds/
+        unityVersion: ${{ matrix.unityVersion }}
+        targetPlatform: ${{ matrix.targetPlatform }}
 
     # Output
     - uses: actions/upload-artifact@v2
       with:
-        name: Build
-        path: builds
+        name: Build-${{ matrix.targetPlatform }}
+        path: ${{ github.workspace }}/Builds/${{ matrix.targetPlatform }}
