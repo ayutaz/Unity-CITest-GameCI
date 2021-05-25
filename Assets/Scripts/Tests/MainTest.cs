@@ -9,15 +9,16 @@ public class MainTest : UITest
     [Test]
     public void UITestSimplePasses()
     {
+        // Assert.That();
         // Use the Assert class to test conditions
     }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator UITestWithEnumeratorPasses()
+    public IEnumerator ButtonPasses()
     {
-        yield return LoadScene("Main");
+        yield return LoadScene("SampleScene");
         yield return Press("Button");
     }
 }
