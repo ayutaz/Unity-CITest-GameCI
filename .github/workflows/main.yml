@@ -33,7 +33,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: Test results
+          name: Test result
           path: artifacts
   build:
     runs-on: ubuntu-latest
