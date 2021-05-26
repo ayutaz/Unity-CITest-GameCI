@@ -703,7 +703,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183431403}
-  - component: {fileID: 1183431405}
   - component: {fileID: 1183431404}
   m_Layer: 0
   m_Name: GameManager
@@ -735,24 +734,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183431402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be4125cc041ed841b50ccea77f99eee, type: 3}
+  m_Script: {fileID: 11500000, guid: b2ffb96e40b19eb47addb973ad8733c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1183431405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183431402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36fbf371d13010140a8c92556612b043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textView: {fileID: 430901284}
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
   buttonView: {fileID: 430901285}
-  model: {fileID: 1183431404}
+  textView: {fileID: 430901284}
 --- !u!1 &1341354761
 GameObject:
   m_ObjectHideFlags: 0

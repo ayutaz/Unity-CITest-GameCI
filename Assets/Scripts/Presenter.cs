@@ -1,26 +1,24 @@
 using Interface;
 using UniRx;
-using UnityEngine;
+using VContainer.Unity;
 
-public class Presenter : MonoBehaviour
+public class Presenter : IStartable
 {
-    [SerializeField] private TextView textView;
-    [SerializeField] private ButtonView buttonView;
+    private readonly IModel _model;
 
-    [SerializeField] private Model model;
+    private readonly ITextView _textView;
 
-    private IModel _model;
+    private readonly IButtonView _buttonView;
 
-    private ITextView _textView;
-
-    private IButtonView _buttonView;
-    // Start is called before the first frame update
-    private void Start()
+    private Presenter(IModel model, ITextView textView, IButtonView buttonView)
     {
         _model = model;
         _textView = textView;
         _buttonView = buttonView;
-        
+    }
+    // Start is called before the first frame update
+    void IStartable.Start()
+    {
         _buttonView.OnTriggerAsObservable().Subscribe(_ => _model.Increment());
         _model.OnCounterChangedAsObservable().Subscribe(count => _textView.SetText(count.ToString()));
     }
