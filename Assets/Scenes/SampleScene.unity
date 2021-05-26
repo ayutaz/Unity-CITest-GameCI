@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5f153a66fc780468415f2202b0c589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mvrpSampleButton: {fileID: 471009890}
+  button: {fileID: 471009890}
 --- !u!1 &471009888
 GameObject:
   m_ObjectHideFlags: 0

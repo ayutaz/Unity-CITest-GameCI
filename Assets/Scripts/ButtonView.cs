@@ -12,7 +12,7 @@ public class ButtonView : MonoBehaviour,IButtonView
     private readonly Subject<Unit> _onTriggerSubject = new Subject<Unit>();
     public IObservable<Unit> OnTriggerAsObservable() => _onTriggerSubject;
 
-    private void Awake()
+    private void Start()
     {
         button.OnClickAsObservable()
             .Subscribe(_ => _onTriggerSubject.OnNext(Unit.Default))
