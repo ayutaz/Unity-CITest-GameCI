@@ -4,3 +4,6 @@ Game-CIを使用した自動テストとビルドテスト
 ## Unity version
 + Unity 2020.3.9f1
 
+## Open UPM
+* VContainer
+* UniRx
